@@ -7,6 +7,7 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
 import envConfig from '../config/env';
 import { PostsEntity } from './posts/posts.entity';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,6 +32,7 @@ import { UserModule } from './user/user.module';
     }),
     PostsModule,
     UserModule,
+    AuthModule,
   ], //导入模块的列表，如果需要使用其他模块的服务，需要通过这里导入；
   controllers: [AppController],
   providers: [AppService],
