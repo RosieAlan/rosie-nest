@@ -1,9 +1,9 @@
 import { PostsService, PostsRo } from './posts.service';
 import { ApiTags,ApiOperation  } from '@nestjs/swagger';
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
-
+import { CreatePostDto } from './dto/create-post.dot';
 @ApiTags("文章接口")
-@Controller('post')
+@Controller('api/post')
 export class PostsController {
     constructor(private readonly postsService:PostsService){}
 
@@ -14,7 +14,7 @@ export class PostsController {
      */
     @ApiOperation({ summary: '创建文章' })
     @Post()
-    async create(@Body() post){
+    async create(@Body() post:CreatePostDto){
         return await this.postsService.create(post)
     }
 

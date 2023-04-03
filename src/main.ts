@@ -15,7 +15,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
-  app.setGlobalPrefix('api'); // 设置全局路由前缀
+  // app.setGlobalPrefix('api'); // 设置全局路由前缀
   app.useGlobalInterceptors(new TransformInterceptor());  // 拦截
   await app.listen(7899);
 }
